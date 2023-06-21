@@ -6,6 +6,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ClipboardModule } from 'ngx-clipboard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from './shared/component/shared.module';
+import { AuthModule } from './auth/auth.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuardService } from './auth/shared/service/auth-guard.service';
+import { ForgotGuardService } from './auth/shared/service/forgot-guard.service';
+import { OtpGuardService } from './auth/shared/service/otp-guard.service';
+import { ProfileGuardService } from './auth/shared/service/profile-guard.service';
+import { LoaderComponent } from './shared/component/loader/loader.component';
+import { CommonInterceptor } from './shared/interceptor/common.interceptor';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -14,9 +24,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    // AuthModule,
-    // DashboardModule,
-    // SharedModule,
+    AuthModule,
+    DashboardModule,
+    SharedModule,
     ClipboardModule,
     RouterModule.forRoot([]),
     NgbModule,
@@ -28,19 +38,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     // }),
   ],
   providers: [
-    // AuthGuardService, 
-    // ProfileGuardService,
-    // OtpGuardService,
-    // ForgotGuardService,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: CommonInterceptor,
-    //   multi: true
-    // }
+    AuthGuardService, 
+    ProfileGuardService,
+    OtpGuardService,
+    ForgotGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CommonInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    // LoaderComponent
+    LoaderComponent
   ]
 })
 export class AppModule { }
