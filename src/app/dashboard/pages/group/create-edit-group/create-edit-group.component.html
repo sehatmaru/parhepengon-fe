@@ -1,0 +1,22 @@
+<div class="container">
+    <div style="width: 300px;">
+        <h3>Create Group</h3>
+        
+        <div class="form-container">
+            <input type="text" id="name" class="input" placeholder="Name" [(ngModel)]="nameValue">
+        </div>
+
+        <div class="form-container">
+            <select class="select" [(ngModel)]="categoryValue" placeholder="Category">
+                <option *ngFor="let category of categoryList" [value]="category">{{ category }}</option>
+            </select>
+        </div>
+
+        <div class="form-container" style="margin-left: 5px;">
+            <button class="arc-btn-retro" style="margin-left: auto !important;" 
+                (click)="submit()" [disabled]="!isValid()">
+                Create
+            </button>
+        </div>
+    </div>
+</div>

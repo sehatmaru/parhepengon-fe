@@ -46,7 +46,11 @@ export class GroupService {
   }
 
   detail(bodyRequest: BaseRequestModel): Observable<CommonResponsei<GroupDetailResponseModel>> {
-    return this.commonApi.post(`${this.root}/member/leave`, bodyRequest) as Observable<any>;
+    return this.commonApi.post(`${this.root}/detail`, bodyRequest) as Observable<any>;
+  }
+
+  getCategory(): Observable<CommonResponsei<any[]>> {
+    return this.commonApi.get(`${this.root}/category/list`) as Observable<any>;
   }
 
 }

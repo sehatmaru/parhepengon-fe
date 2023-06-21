@@ -7,11 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
 import { AuthRoutingModule } from '../auth/auth-routing.module';
+import { CreateEditGroupComponent } from './pages/group/create-edit-group/create-edit-group.component';
+import { DetailGroupComponent } from './pages/group/detail-group/detail-group.component';
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    CreateEditGroupComponent,
+    DetailGroupComponent
   ],
   imports: [
     CommonModule,

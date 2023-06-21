@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
   ) { }
   
   ngOnInit(): void {
-    this.getBillList()
     this.getGroupList()
   }
 
@@ -132,5 +131,13 @@ export class HomeComponent implements OnInit {
     this.clipboardService.copyFromContent(value)
 
     this.snackbar.open('Copied', 'OK', { duration: 5000 })
+  }
+
+  toCreateGroup() {
+    this.router.navigateByUrl('group/create');
+  }
+
+  toDetailGroup(secureId: string) {
+    this.router.navigateByUrl('group/detail?secureId=' + secureId);
   }
 }

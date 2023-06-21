@@ -37,4 +37,12 @@ export class BillService {
     return this.commonApi.post(`${this.root}/detail`, bodyRequest) as Observable<any>;
   }
 
+  getCategory(): Observable<CommonResponsei<any[]>> {
+    return this.commonApi.get(`${this.root}/category/list`) as Observable<any>;
+  }
+
+  getMethod(): Observable<CommonResponsei<any[]>> {
+    return this.commonApi.get(`${this.root}/method/list`) as Observable<any>;
+  }
+
 }
